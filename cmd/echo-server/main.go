@@ -48,6 +48,7 @@ var upgrader = websocket.Upgrader{
 }
 
 func handler(wr http.ResponseWriter, req *http.Request) {
+	fmt.Printf("Debug - URL Path: %s, Base: %s\n", req.URL.Path, path.Base(req.URL.Path))
 	defer req.Body.Close()
 
 	if os.Getenv("LOG_HTTP_BODY") != "" || os.Getenv("LOG_HTTP_HEADERS") != "" {
